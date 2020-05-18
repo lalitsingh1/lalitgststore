@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Product Manager</title>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color: rgba(255, 0, 0, 0.1);">
+<div align="center">
+    <h1><i><b>Lalit'Store Items</b></i></h1>
+    <a href="new">Add new Product</a>
+    <a href="Billing">Check-out</a>
+
+    <br/><br/>
+    <table border="1" >
+        <thead>
+            <tr style="background-color: rgb(0, 191, 255);">
+                <th>Product Code</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>GST %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+            	<td th:text="${product.product_code}">Product Code</td>
+                <td th:text="${product.product_name}" style="padding:20px;">Name</td>
+                <td th:text="${product.product_price}">Price</td>
+                <td th:text="${product.product_gst}">GST %</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${product.product_code}}">&#9998;Modify</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${product.product_code}}">&#128465;Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

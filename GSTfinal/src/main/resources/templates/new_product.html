@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Product</title>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="background-color: rgba(255, 0, 0, 0.1);">
+	<div style="text-align: center;">
+		<h1><i><b>Create New Product</b></i></h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${product}"
+			method="post">
+
+			<table>
+				<tr>
+					<td>Product Code:</td>
+					<td><input type="text" th:field="*{product_code}" required/></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" th:field="*{product_name}" required/></td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" th:field="*{product_price}" required/></td>
+				</tr>
+				<tr>
+					<td>GST%:</td>
+					<td><input type="text" th:field="*{product_gst}" required/></td>
+				</tr>								
+				<tr>
+					<td colspan="2"><button type="submit" class="w3-btn w3-green w3-ripple">&#10004;Add</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
